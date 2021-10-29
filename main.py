@@ -5,7 +5,7 @@ from notification_manager import NotificationManager
 
 
 # ---------------- ADD USERS TO FLIGHT CLUB ------------------------------ #
-USERS_ENDPOINT = "https://api.sheety.co/2df28ed6046e87f62f8e1110d5d64aa0/flightDeals/users"
+USERS_ENDPOINT = "https://api.sheety.co/..."
 print("Welcome to WB Flight Club!")
 FIRST_NAME = input("Please enter your first name: ")
 LAST_NAME = input("Please enter your last name: ")
@@ -14,7 +14,6 @@ VERI_EMAIL = input("Please enter your email address again: ")
 
 response = requests.get(url=USERS_ENDPOINT)
 users_data = response.json()["users"]
-print(users_data)
 
 if not users_data:
     if EMAIL == VERI_EMAIL:
