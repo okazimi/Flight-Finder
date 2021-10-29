@@ -59,7 +59,7 @@ google_sheet.update_destination_data()
 for destination in google_sheet_data:
     flight = flight_search.check_flights(destination["iataCode"])
 
-    # ---------------- SEND TEXT USING TWILIO ---------------------------- #
+    # ---------------- SEND TEXT/EMAIL USING TWILIO ---------------------------- #
     notification_manager = NotificationManager()
     if flight.price < destination["lowestPrice"]:
         link = flight.url.format(link=flight.url, text="Please click here to book your flight!")
