@@ -4,7 +4,7 @@ import requests
 class DataManager:
 
     def __init__(self):
-        self.endpoint = "https://api.sheety.co/2df28ed6046e87f62f8e1110d5d64aa0/flightDeals/prices"
+        self.endpoint = "https://api.sheety.co/..."
         self.destination_data = {}
 
     def get_destination_data(self):
