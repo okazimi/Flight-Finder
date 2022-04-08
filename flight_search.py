@@ -7,7 +7,7 @@ class FlightSearch:
 
     def __init__(self):
         self.endpoint = "https://tequila-api.kiwi.com/"
-        self.api_key = MY_API_KEY
+        self.api_key = os.environ["MY_API_KEY"]
 
     def get_destination_code(self, city):
         header = {"apikey": self.api_key}
