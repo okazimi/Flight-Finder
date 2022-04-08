@@ -5,7 +5,7 @@ from notification_manager import NotificationManager
 
 
 # ---------------- ADD USERS TO FLIGHT CLUB ------------------------------ #
-USERS_ENDPOINT = "https://api.sheety.co/..."
+USERS_ENDPOINT = os.environ["APISHEETYENDPOINT']
 print("Welcome to WB Flight Club!")
 FIRST_NAME = input("Please enter your first name: ")
 LAST_NAME = input("Please enter your last name: ")
@@ -15,6 +15,7 @@ VERI_EMAIL = input("Please enter your email address again: ")
 response = requests.get(url=USERS_ENDPOINT)
 users_data = response.json()["users"]
 
+// WHEN USER DATA IS FIRST CREATED
 if not users_data:
     if EMAIL == VERI_EMAIL:
         params = {
@@ -26,11 +27,15 @@ if not users_data:
         }
         response = requests.post(url=USERS_ENDPOINT, json=params)
         response.raise_for_status()
+
+// PREVIOUS USER DATA ALREADY EXISTS
 else:
+    // USER ALREADY EXISTS
     for user in users_data:
         if user["email"] == EMAIL:
             print(f"The email {user['email']} already exist.")
             break
+        // USER DOES NOT EXIST
         else:
             params = {
                 "user": {
